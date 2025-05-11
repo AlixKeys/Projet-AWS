@@ -44,6 +44,14 @@ Resources:
             VolumeSize: 20
         - DeviceName: "/dev/sdk"
           NoDevice: {}
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          apt update -y
+          apt install -y git
+          cd /home/ubuntu
+          git clone https://github.com/AlixKeys/Projet-AWS.git
+          chown -R ubuntu:ubuntu Projet-AWS
       Tags:
         - Key: Name
           Value: !Sub "${EnvName}-instance"
