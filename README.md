@@ -4,7 +4,7 @@ Ce projet met en place une infrastructure cloud sur AWS en utilisant **CloudForm
 
 ---
 
-## 📌 Objectif du projet
+##  Objectif du projet
 
 Déployer automatiquement une infrastructure serveur sans avoir à tout configurer manuellement. Le but est de :
 
@@ -16,7 +16,7 @@ Déployer automatiquement une infrastructure serveur sans avoir à tout configur
 
 ---
 
-## 🔧 Technologies et services utilisés
+##  Technologies et services utilisés
 
 * **AWS CloudFormation** : Pour le déploiement de l'infrastructure en Infrastructure-as-Code (IaC)
 * **S3 (Simple Storage Service)** : Stockage des fichiers
@@ -28,7 +28,7 @@ Déployer automatiquement une infrastructure serveur sans avoir à tout configur
 
 ---
 
-## 🧱 Architecture globale du projet
+##  Architecture globale du projet
 
 ![Architecture AWS](schema_infrastructure.png)
 
@@ -42,7 +42,7 @@ Déployer automatiquement une infrastructure serveur sans avoir à tout configur
 
 ---
 
-## 📁 Contenu du dépôt Git
+##  Contenu du dépôt Git
 
 | Fichier / Dossier             | Description                           |
 | ----------------------------- | ------------------------------------- |
@@ -52,9 +52,9 @@ Déployer automatiquement une infrastructure serveur sans avoir à tout configur
 
 ---
 
-## 🧾 Détail du template `template_DV.yaml`
+##  Détail du template `template_DV.yaml`
 
-### 🔐 Paramètres personnalisables
+###  Paramètres personnalisables
 
 ```yaml
 Parameters:
@@ -62,25 +62,25 @@ Parameters:
   VPcId:                  # ID de la VPC existante
 ```
 
-### 🔒 Groupe de sécurité (Security Group)
+###  Groupe de sécurité (Security Group)
 
 * Autorise uniquement le **port 22 (SSH)**
 * Restreint à une adresse IP spécifique (ex : `196.169.11.120/24`)
 
-### 🖥️ EC2 Instance
+###  EC2 Instance
 
 * AMI Ubuntu : `ami-0160e8d70ebc43ee1`
 * Type : `t2.micro`
 * Ajout de **2 volumes EBS**
 * Utilisation de **tags** pour identification
 
-### 🧾 Table DynamoDB
+###  Table DynamoDB
 
 * Nom : `FileMetadata-<EnvName>`
 * Clé primaire : `FileName` (type `String`)
 * Capacité : 5 RCUs, 5 WCUs (mode provisionné)
 
-### 🧠 Fonction Lambda
+###  Fonction Lambda
 
 * Runtime : `Python 3.12`
 * Gère les événements S3
@@ -94,19 +94,19 @@ dynamodb = boto3.resource('dynamodb')
 table.put_item(Item={'FileName': key, 'BucketName': bucket})
 ```
 
-### 🪣 Bucket S3
+###  Bucket S3
 
 * Nom : `<EnvName>-file-metadata-bucket`
 * Événement `s3:ObjectCreated:*`
 * Déclenchement de Lambda
 
-### 🔐 Permission Lambda
+###  Permission Lambda
 
 * Autorisation explicite pour que S3 appelle Lambda via `AWS::Lambda::Permission`
 
 ---
 
-## 🚀 Déploiement du Stack
+##  Déploiement du Stack
 
 ### Pré-requis :
 
@@ -132,7 +132,7 @@ aws cloudformation deploy \
 
 ---
 
-## 🧪 Résultat attendu
+##  Résultat attendu
 
 * Une infrastructure 100% déployée automatiquement
 * Une instance EC2 accessible uniquement via SSH
@@ -142,14 +142,14 @@ aws cloudformation deploy \
 
 ---
 
-## 📤 Exporter ce fichier
+##  Exporter ce fichier
 
 * En Markdown : `README.md`
 * En PDF : Export possible depuis GitHub avec une extension navigateur (ou via VSCode + extension Markdown PDF)
 
 ---
 
-## 👩🏽‍💻 Auteur
+## Auteur
 
 Alix – Data Analyst
 Projet réalisé dans le cadre d’un **examen AWS - Mai 2025**
