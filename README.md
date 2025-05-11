@@ -151,5 +151,5 @@ aws cloudformation deploy \
 
 ## 👩🏽‍💻 Auteur
 
-Alix – Data Analyst, développeuse cloud & data passionnée
+Alix – Data Analyst
 Projet réalisé dans le cadre d’un **examen AWS - Mai 2025**
