@@ -30,7 +30,7 @@ Déployer automatiquement une infrastructure serveur sans avoir à tout configur
 
 ## 🧱 Architecture globale du projet
 
-![Architecture AWS](./schema_infrastrucure.png)
+![Architecture AWS](Projet-AWS/schema_infrastrucure.png)
 
 ### Détails du flux :
 
