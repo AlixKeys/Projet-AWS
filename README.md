@@ -142,7 +142,7 @@ aws cloudformation deploy \
 
 ---
 
-##  Exporter ce fichier
+##  Exportation de ce fichier
 
 * En Markdown : `README.md`
 * En PDF : Export possible depuis GitHub avec une extension navigateur (ou via VSCode + extension Markdown PDF)
